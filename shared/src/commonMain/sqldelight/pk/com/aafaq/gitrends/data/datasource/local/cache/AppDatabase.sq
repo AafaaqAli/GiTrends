@@ -1,0 +1,26 @@
+import kotlin.Boolean;
+
+CREATE TABLE TrendingRepository (
+    itemID INTEGER NOT NULL,
+    repositoryStars INTEGER NOT NULL,
+    forksCount INTEGER NOT NULL,
+    isItemExpanded INTEGER AS Boolean DEFAULT 0,
+    avatarURL TEXT NOT NULL,
+    itemHeadingUserName TEXT NOT NULL,
+    itemSubHeadingRepositoryName TEXT NOT NULL,
+    itemDescription TEXT NOT NULL,
+    repositoryLanguage TEXT NOT NULL,
+    userURLPage TEXT NOT NULL,
+    repositoryURLPage TEXT NOT NULL
+);
+
+insertTrendingRepository:
+INSERT INTO TrendingRepository(itemID, repositoryStars, forksCount, isItemExpanded, avatarURL, itemHeadingUserName, itemSubHeadingRepositoryName, itemDescription, repositoryLanguage, userURLPage, repositoryURLPage)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+removeAllTrendingRepositories:
+DELETE FROM TrendingRepository;
+
+selectAllTrendingRepositories:
+SELECT TrendingRepository.*
+FROM TrendingRepository;
